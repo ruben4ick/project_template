@@ -8,7 +8,7 @@ def main():
     print_to_console(text)
 
     # Python reading and writing
-    file_path = "data/example.txt"  # Change this value to the one that is suitable for you
+    file_path = "data/example.txt"
     data_to_write = "Testing functions"
     write_to_file(data_to_write, file_path)
     data_from_file = read_from_file_python(file_path)

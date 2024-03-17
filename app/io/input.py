@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def input_text():
     """Requests to input text from console.
 
@@ -5,7 +8,7 @@ def input_text():
     Returns:
         str: Entered text from user.
     """
-    pass
+    return input("Enter text: ")
 
 
 def read_from_file_python(file_path):
@@ -20,7 +23,12 @@ def read_from_file_python(file_path):
     Raises:
         FileNotFoundError: If the specified file_path does not exist.
        """
-    pass
+    try:
+        with open(file_path, 'r') as file:
+            text = file.read()
+        return text
+    except FileNotFoundError:
+        raise FileNotFoundError("File not found.")
 
 
 def read_from_file_pandas(file_path):
@@ -35,4 +43,8 @@ def read_from_file_pandas(file_path):
     Raises:
         FileNotFoundError: If the specified file_path does not exist.
     """
-    pass
+    try:
+        df = pd.read_csv(file_path)
+        return df
+    except FileNotFoundError:
+        raise FileNotFoundError("File not found.")

@@ -1,21 +1,22 @@
-def output_text(text):
+def print_to_console(*args, **kwargs):
     """Prints text to the console.
 
     Args:
-        text (str): The text to be printed to the console.
+        *args: Positional arguments to be printed to the console.
+        **kwargs: Keyword arguments that can be used to configure the printing.
 
     Returns:
         None
     """
-    pass
+    print(*args, **kwargs)
 
 
-def write_to_file_python(file_path, content):
-    """Writes content to a Python file.
+def write_to_file( data, file_path):
+    """Writes data to a file.
 
     Args:
+        data (str): The data to write to the file.
         file_path (str): The path to the Python file to write.
-        content (str): The content to write to the file.
 
     Returns:
         None
@@ -23,7 +24,11 @@ def write_to_file_python(file_path, content):
     Raises:
         IOError: If an error occurs while writing to the file.
     """
-    pass
+    try:
+        with open(file_path, 'w') as file:
+            file.write(data)
+    except IOError:
+        raise IOError("Error writing to file")
 
 
 def write_to_file_pandas(dataframe, file_path):
@@ -40,3 +45,8 @@ def write_to_file_pandas(dataframe, file_path):
     Raises:
         IOError: If an error occurs while writing to the file.
     """
+    try:
+        dataframe.to_csv(file_path)
+    except IOError:
+        raise IOError("Error writing to file")
+

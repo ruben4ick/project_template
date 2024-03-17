@@ -30,7 +30,7 @@ class TestReadFromFile(unittest.TestCase):
         data = {'A': [1, 2, 3], 'B': [4, 5, 6]}
         df = pd.DataFrame(data)
         file_path = 'test_file.csv'
-        df.to_csv(file_path)
+        df.to_csv(file_path, index=False)
         df_read = read_from_file_pandas(file_path)
         pd.testing.assert_frame_equal(df_read, df)
         os.remove(file_path)

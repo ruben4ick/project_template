@@ -19,6 +19,13 @@ class TestReadFromFile(unittest.TestCase):
         with self.assertRaises(FileNotFoundError):
             read_from_file_python(file_path)
 
+    def test_read_empty_file(self):
+        file_path = 'empty_file.txt'
+        open(file_path, 'a').close()
+        actual_text = read_from_file_python(file_path)
+        self.assertEqual(actual_text, '')
+        os.remove(file_path)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -14,6 +14,11 @@ class TestReadFromFile(unittest.TestCase):
         self.assertEqual(actual_text, expected_text)
         os.remove(file_path)
 
+    def test_read_nonexistent_file(self):
+        file_path = 'nonexistent_file.txt'
+        with self.assertRaises(FileNotFoundError):
+            read_from_file_python(file_path)
+
 
 if __name__ == '__main__':
     unittest.main()
